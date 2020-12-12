@@ -1,0 +1,6 @@
+2021-02-13 - Non-linear PID control method (Fan Jizhong) Fan JZ, Ling DY, Tang ZY, Pai ZC. Study on nonlinear PID control for electro-hydrostatic actuator. CGNCC 2014, 6th IEEE Chinese guidance, navigation and control conference; 2014, Aug 8–10; Yantai, China; 2014. p. 1317–20.
+2021-02-13 - Fuzzy NN adaptive back-stepping control (Han Me Kim et al.) H.M. Kim, S.H. Park, J.M. Lee, J.S. Kim. A robust control of electro hydrostatic actuator using the adaptive back-stepping scheme and fuzzy neural networks. Int J Precision Eng Manuf, 11 (2) (2010), pp. 227-236
+2021-02-13 - Optimum control on feedback linearization (Zhang Ye et al.) J. Choi. Robust position control of electro-hydrostatic actuator systems with radial basis function neural networks. J Adv Mech Design Syst Manuf, 7 (2) (2013), pp. 257-267
+2021-02-13 2021-02-13 - Entry on PID
+2021-02-13 There is benefit to improving the (electric) motor speed, it reduces the heating, current, improves power density. (check the formulas)
+2021-02-13 Entry on EHA
