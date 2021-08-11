@@ -8,6 +8,9 @@ import os, fnmatch, shutil, pathlib, sqlite3, time, re, random, tempfile
 import subprocess, py_compile, gc, textwrap
 from sqlite3 import Error
 
+# SSH for termux to ask for key
+os.system("ssh-add /data/data/com.termux/files/usr/etc/ssh/id_ed25519")
+
 #▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ WRITING OPS ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
 def write_num_not_empty(type, prompt_str):
 	while True:
@@ -66,6 +69,7 @@ def parse_off_comments(text):
 		else: out += line
 	return out
 
+#▒▒▒▒▒▒▒▒▒▒▒▒ MENUS ▒▒▒▒▒▒▒▒▒▒▒▒▒
 def git_menu():
 	print_git_ops()
 	while True:
