@@ -85,6 +85,7 @@ def git_menu():
 		elif inp == "rb": git_rebase_i()
 		elif inp == "ha": git_reset_hard_f()
 		elif inp == "u": git_launch_gitui()
+		elif inp == "todo": todo()
 		elif inp == "q": break
 		
 #▒▒▒▒▒▒▒▒▒▒▒▒ FORMATTING ▒▒▒▒▒▒▒▒▒▒▒▒▒
@@ -185,6 +186,8 @@ def print_git_ops():
 	print(tw_i.fill('(rb) - rebase (interactive)'))
 	print(tw_i.fill('(ha) - hard reset'))
 	print(tw_i.fill('(u) - launch "gitui" (must be installed)'))
+	print()
+	print(tw_i.fill('(todo) - find all "todo" comments'))
 	print_q()
 
 #▒▒▒▒▒▒▒▒▒▒▒▒▒▒ STANDARD PROMPTS ▒▒▒▒▒▒▒▒▒▒▒▒▒▒
@@ -264,5 +267,10 @@ def git_rebase_i():
 	git_log_f(); p()
 	num = write_num_not_empty('int', 'Number of commits to include in rebase')
 	os.system("git rebase -i HEAD~"+str(num))
+
+# OTHER FUNCTIONS.
+def todo():
+	cl_divider();
+	os.system('grep --exclude="*.py" --exclude="*.gitignore" --exclude-dir=".git" -rni --color=always "todo" .')
 
 git_menu()
