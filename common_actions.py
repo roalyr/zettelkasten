@@ -86,6 +86,8 @@ def git_menu():
 		elif inp == "ha": git_reset_hard_f()
 		elif inp == "u": git_launch_gitui()
 		elif inp == "todo": todo()
+		elif inp == "g": grep_search()
+		elif inp == "t": target_tree()
 		elif inp == "q": break
 		
 #▒▒▒▒▒▒▒▒▒▒▒▒ FORMATTING ▒▒▒▒▒▒▒▒▒▒▒▒▒
@@ -174,7 +176,7 @@ def print_abort_writing_quit_allowed():
 def print_git_ops():
 	tw_i = tw_i_update()
 	cl_divider()
-	print("ZETTELKASTEN GIT")
+	print("ZETTELKASTEN OPS")
 	divider()
 	print(tw_i.fill('() - current'))
 	print(tw_i.fill('(l) - log'))
@@ -186,7 +188,9 @@ def print_git_ops():
 	print(tw_i.fill('(rb) - rebase (interactive)'))
 	print(tw_i.fill('(ha) - hard reset'))
 	print(tw_i.fill('(u) - launch "gitui" (must be installed)'))
-	print()
+	divider()
+	print(tw_i.fill('(t) - "tree" the target folder'))
+	print(tw_i.fill('(g) - "grep" the source folder files'))
 	print(tw_i.fill('(todo) - find all "todo" comments'))
 	print_q()
 
@@ -268,9 +272,19 @@ def git_rebase_i():
 	num = write_num_not_empty('int', 'Number of commits to include in rebase')
 	os.system("git rebase -i HEAD~"+str(num))
 
-# OTHER FUNCTIONS.
+#▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ OTHER OPS ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
 def todo():
 	cl_divider();
 	os.system('grep --exclude="*.py" --exclude="*.gitignore" --exclude-dir=".git" -rni --color=always "todo" .')
+
+def target_tree():
+	cl_divider();
+	os.system('tree -I target'+' '+'.')
+
+def grep_search():
+	cl_divider();
+	comment = '# Enter the pattern to search in source files below\n'
+	pattern = write_not_empty(comment, flag=None, allow_exit=True)
+	os.system('grep --exclude="*.py" --exclude-dir=".git" -rn --color=always'+' "'+pattern+'" '+' .')
 
 git_menu()
